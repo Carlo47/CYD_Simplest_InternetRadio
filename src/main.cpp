@@ -1,7 +1,7 @@
 /**
  * Program      CYD_Simplest_Internetradio.cpp
  * 
- * Author       2024-04-126 Charles Geiser (www.dodeka.ch)
+ * Author       2024-04-26 Charles Geiser (www.dodeka.ch)
  * 
  * Purpose      Shows how to implement an internet radio with the CYD (Cheap Yellow Display)
  * 
