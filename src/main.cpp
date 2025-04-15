@@ -16,9 +16,9 @@
  **/
  
 #include "AudioTools.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 
-ICYStream url("ssid", "password");                   // Your WiFi SSID and password
+URLStream url("ssid", "password");                   // Your WiFi SSID and password
 AnalogAudioStream out; 
 EncodedAudioStream dec(&out, new MP3DecoderHelix()); // decode stream an route it to the esp32 analog stream
 StreamCopy copier(dec, url);                         // copies mp3-stream from url to the decoder
