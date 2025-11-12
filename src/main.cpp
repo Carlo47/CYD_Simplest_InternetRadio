@@ -16,7 +16,9 @@
  **/
  
 #include "AudioTools.h"
+#include "AudioTools/Communication/HTTP/URLStream.h"
 #include "AudioTools/AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/CoreAudio/AudioAnalog/AnalogConfigESP32V1.h"
 
 URLStream url("ssid", "password");                   // Your WiFi SSID and password
 AnalogAudioStream out; 
@@ -27,10 +29,10 @@ StreamCopy copier(dec, url);                         // copies mp3-stream from u
 void setup(void) 
 {   
   Serial.begin(115200);
-  AudioLogger::instance().begin(Serial, AudioLogger::Info);
+  AudioLogger::instance().begin(Serial, AudioLogger::Error);
 
   // configure the analog output
-  AnalogConfigESP32 config = out.defaultConfig(TX_MODE);   // use ESP32 DAC channel on GPIO_NUM_26
+  AnalogConfigESP32V1 config = out.defaultConfig(TX_MODE);   // use ESP32 DAC channel on GPIO_NUM_26
  
   url.begin("http://stream.srg-ssr.ch/m/rsc_de/mp3_128","audio/mp3");  // start reading the mp3-stream from url
   dec.begin();                                                         // start the decoder
